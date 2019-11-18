@@ -1,0 +1,17 @@
+name: master-pull-request
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: sbt test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run sbt test
+        run: |
+          sbt compile
+          sbt test
