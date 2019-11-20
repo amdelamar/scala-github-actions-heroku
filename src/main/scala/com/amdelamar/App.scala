@@ -19,7 +19,7 @@ object App extends HttpApp {
   }
 
   def main(args: Array[String]): Unit = {
-    val HOST = Try(sys.env("HOST")).getOrElse("localhost")
+    val HOST = sys.env.getOrElse("HOST", "localhost")
     val PORT = Try(sys.env("PORT").toInt).getOrElse(8080)
 
     App.startServer(HOST, PORT)
